@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "438559208262",
+    "project_id": "word-diction",
+    "storage_bucket": "word-diction.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:438559208262:android:b856266c6ed39d06782b47",
+        "android_client_info": {
+          "package_name": "com.example.word_diction"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "438559208262-665enihamvhp3i747in6gl5oke9pm6nj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBC8culMqbYxTMN3zKpy4_woA75wP4WMLk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "438559208262-665enihamvhp3i747in6gl5oke9pm6nj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
