@@ -1,7 +1,29 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
-class LoginPage extends StatelessWidget {
+final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
+
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  GoogleSignInAccount? _currentUser;
+
+  @override
+  void initState() {
+    _googleSignIn.onCurrentUserChanged.listen((account) {
+      setState(() {
+        _currentUser = account;
+      });
+    });
+    _googleSignIn.signInSilently();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -10,8 +32,7 @@ class LoginPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.pink,
-      body: Container(
-          child: Padding(
+      body: Padding(
         padding: const EdgeInsets.fromLTRB(18, 10, 18, 4),
         child: Column(
           children: <Widget>[
@@ -34,7 +55,7 @@ class LoginPage extends StatelessWidget {
                 height: 52,
                 width: widthVar,
                 child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: signIn,
                     style: ButtonStyle(
                       shape: MaterialStateProperty.all(RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15))),
@@ -55,7 +76,17 @@ class LoginPage extends StatelessWidget {
             ),
           ],
         ),
-      )),
+      ),
     );
+  }
+}
+
+Future<void> signIn() async{
+  try{
+    await _googleSignIn.signIn();
+  }catch(e){
+    if (kDebugMode) {
+      print('Error Signing In $e');
+    }
   }
 }
