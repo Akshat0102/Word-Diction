@@ -1,6 +1,6 @@
 # word_diction
 
-A new Flutter project.
+A new Flutter project. Word Diction is an app that helps you keep your personal dictionary for words that you are learn recently while learning new languages. 
 
 ## Getting Started
 
