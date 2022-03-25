@@ -12,7 +12,10 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+
   GoogleSignInAccount? _currentUser;
+  late Image image1;
+  late Image image2;
 
   @override
   void initState() {
@@ -23,6 +26,15 @@ class _LoginPageState extends State<LoginPage> {
     });
     _googleSignIn.signInSilently();
     super.initState();
+    image1 = Image .asset('assets/images/front_art-01.png');
+    image2 = Image.asset('assets/images/name.png');
+  }
+
+  @override
+  void didChangeDependencies() {
+    precacheImage(image1.image, context);
+    precacheImage(image2.image, context);
+    super.didChangeDependencies();
   }
 
   @override
@@ -38,15 +50,13 @@ class _LoginPageState extends State<LoginPage> {
           children: <Widget>[
             SizedBox(
               height: heightVar / 2,
-              child: const Image(
-                image: AssetImage('assets/images/front_art-01.png'),
-              ),
+              child: image1
             ),
             const Spacer(),
             SizedBox(
               height: heightVar / 5,
               width: widthVar / 1.2,
-              child: const Image(image: AssetImage('assets/images/name.png')),
+              child: image2
             ),
             const Spacer(),
             Padding(
