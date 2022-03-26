@@ -12,7 +12,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-
   GoogleSignInAccount? _currentUser;
   late Image image1;
   late Image image2;
@@ -26,7 +25,7 @@ class _LoginPageState extends State<LoginPage> {
     });
     _googleSignIn.signInSilently();
     super.initState();
-    image1 = Image .asset('assets/images/front_art-01.png');
+    image1 = Image.asset('assets/images/front_art-01.png');
     image2 = Image.asset('assets/images/name.png');
   }
 
@@ -43,21 +42,15 @@ class _LoginPageState extends State<LoginPage> {
     double widthVar = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: Colors.pink,
+      backgroundColor: Colors.deepPurple,
       body: Padding(
         padding: const EdgeInsets.fromLTRB(18, 10, 18, 4),
         child: Column(
           children: <Widget>[
-            SizedBox(
-              height: heightVar / 2,
-              child: image1
-            ),
+            SizedBox(height: heightVar / 2, child: image1),
             const Spacer(),
             SizedBox(
-              height: heightVar / 5,
-              width: widthVar / 1.2,
-              child: image2
-            ),
+                height: heightVar / 5, width: widthVar / 1.2, child: image2),
             const Spacer(),
             Padding(
               padding: EdgeInsets.fromLTRB(10, 0, 10, heightVar / 16),
@@ -91,10 +84,10 @@ class _LoginPageState extends State<LoginPage> {
   }
 }
 
-Future<void> signIn() async{
-  try{
+Future<void> signIn() async {
+  try {
     await _googleSignIn.signIn();
-  }catch(e){
+  } catch (e) {
     if (kDebugMode) {
       print('Error Signing In $e');
     }
